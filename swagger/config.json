@@ -1,0 +1,5 @@
+{
+  "modelPackage" : "ie.kevmurf.oas.model",
+  "apiPackage" : "ie.kevmurf.oas.api",
+  "configPackage": "ie.kevmurf.oas.configuration"
+}

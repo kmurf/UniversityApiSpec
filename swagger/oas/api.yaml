@@ -1,0 +1,118 @@
+swagger: "2.0"
+info:
+  title: Classes API
+  description: API description in Markdown.
+  version: 1.0.0
+basePath: /v1
+schemes:
+  - http
+  - https
+paths:
+  /classes:
+    get:
+      summary: Returns a list of classes.
+      operationId: getClasses
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ClassApiSpec'
+    post:
+      summary: Creates a new class.
+      operationId: createClass
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: class
+          schema:
+            $ref: '#/definitions/ClassApiSpec'
+      responses:
+        201:
+          description: Created
+          schema:
+            $ref: '#/definitions/ClassApiSpec'
+  /classes/{classId}:
+    get:
+      summary: Returns a class by ID.
+      operationId: getClassById
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          type: integer
+          minimum: 1
+          description: The ID of the class to retrieve.
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/ClassApiSpec'
+        400:
+          description: The specified class ID is invalid (e.g. not a number).
+        404:
+          description: A class with the specified ID was not found.
+        default:
+          description: Unexpected error
+    put:
+      summary: Update / Replace a class.
+      operationId: updateClass
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          type: integer
+          minimum: 1
+          description: The ID of the class to update.
+        - in: body
+          name: class
+          schema:
+            $ref: '#/definitions/ClassApiSpec'
+      reponses:
+        204:
+          description: No Content
+        400:
+          description: The specified class ID is invalid (e.g. not a number).
+        404:
+          description: A class with the specified ID was not found.
+        default:
+          description: Unexpected error
+    delete:
+      summary: Delete a class.
+      operationId: deleteClass
+      parameters:
+          - in: path
+            name: classId
+            required: true
+            type: integer
+            minimum: 1
+            description: The ID of the class to delete.
+      reponses:
+        200:
+          description: Deleted
+        400:
+          description: The specified class ID is invalid (e.g. not a number).
+        404:
+          description: A class with the specified ID was not found.
+        default:
+          description: Unexpected error
+definitions:
+  ClassApiSpec:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    # Both properties are required
+    required:
+      - name
