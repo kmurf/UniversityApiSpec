@@ -1,0 +1,117 @@
+swagger: "2.0"
+info:
+  title: Students API
+  description: API description in Markdown.
+  version: 1.0.0
+basePath: /v1
+schemes:
+  - http
+  - https
+paths:
+  /students:
+    get:
+      summary: Returns a list of students.
+      operationId: getStudents
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/StudentApiSpec'
+    post:
+      summary: Creates a new student.
+      operationId: createStudent
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: student
+          schema:
+            $ref: '#/definitions/StudentApiSpec'
+      responses:
+        201:
+          description: Created
+          schema:
+            $ref: '#/definitions/StudentApiSpec'
+  /students/{studentId}:
+    get:
+      summary: Returns a student by ID.
+      operationId: getStudentById
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: studentId
+          required: true
+          type: integer
+          minimum: 1
+          description: The ID of the student to retrieve.
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/StudentApiSpec'
+        400:
+          description: The specified student ID is invalid (e.g. not a number).
+        404:
+          description: A student with the specified ID was not found.
+        default:
+          description: Unexpected error
+    put:
+      summary: Update / Replace a student.
+      operationId: updateStudent
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: studentId
+          required: true
+          type: integer
+          minimum: 1
+          description: The ID of the student to update.
+        - in: body
+          name: student
+          schema:
+            $ref: '#/definitions/StudentApiSpec'
+      reponses:
+        204:
+          description: No Content
+        400:
+          description: The specified student ID is invalid (e.g. not a number).
+        404:
+          description: A student with the specified ID was not found.
+        default:
+          description: Unexpected error
+    delete:
+      summary: Delete a student.
+      operationId: deleteStudent
+      parameters:
+          - in: path
+            name: studentId
+            required: true
+            type: integer
+            minimum: 1
+            description: The ID of the student to delete.
+      reponses:
+        200:
+          description: Deleted
+        400:
+          description: The specified student ID is invalid (e.g. not a number).
+        404:
+          description: A student with the specified ID was not found.
+        default:
+          description: Unexpected error
+definitions:
+  StudentApiSpec:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    required:
+      - name

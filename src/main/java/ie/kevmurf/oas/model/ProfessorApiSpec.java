@@ -10,20 +10,20 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * ClassApiSpec
+ * ProfessorApiSpec
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-07-08T15:58:36.640+01:00[Europe/London]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-07-08T15:58:38.644+01:00[Europe/London]")
 
 
-public class ClassApiSpec   {
+public class ProfessorApiSpec   {
   @JsonProperty("id")
   private Integer id = null;
 
   @JsonProperty("name")
   private String name = null;
 
-  public ClassApiSpec id(Integer id) {
+  public ProfessorApiSpec id(Integer id) {
     this.id = id;
     return this;
   }
@@ -42,7 +42,7 @@ public class ClassApiSpec   {
     this.id = id;
   }
 
-  public ClassApiSpec name(String name) {
+  public ProfessorApiSpec name(String name) {
     this.name = name;
     return this;
   }
@@ -71,9 +71,9 @@ public class ClassApiSpec   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ClassApiSpec classApiSpec = (ClassApiSpec) o;
-    return Objects.equals(this.id, classApiSpec.id) &&
-        Objects.equals(this.name, classApiSpec.name);
+    ProfessorApiSpec professorApiSpec = (ProfessorApiSpec) o;
+    return Objects.equals(this.id, professorApiSpec.id) &&
+        Objects.equals(this.name, professorApiSpec.name);
   }
 
   @Override
@@ -84,7 +84,7 @@ public class ClassApiSpec   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ClassApiSpec {\n");
+    sb.append("class ProfessorApiSpec {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

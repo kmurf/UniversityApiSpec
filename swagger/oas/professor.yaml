@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  title: Classes API
+  title: Professors API
   description: API description in Markdown.
   version: 1.0.0
 basePath: /v1
@@ -8,10 +8,10 @@ schemes:
   - http
   - https
 paths:
-  /classes:
+  /professors:
     get:
-      summary: Returns a list of classes.
-      operationId: getClasses
+      summary: Returns a list of professors.
+      operationId: getProfessors
       produces:
         - application/json
       responses:
@@ -20,99 +20,98 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/ClassApiSpec'
+              $ref: '#/definitions/ProfessorApiSpec'
     post:
-      summary: Creates a new class.
-      operationId: createClass
+      summary: Creates a new professor.
+      operationId: createProfessor
       produces:
         - application/json
       consumes:
         - application/json
       parameters:
         - in: body
-          name: class
+          name: professor
           schema:
-            $ref: '#/definitions/ClassApiSpec'
+            $ref: '#/definitions/ProfessorApiSpec'
       responses:
         201:
           description: Created
           schema:
-            $ref: '#/definitions/ClassApiSpec'
-  /classes/{classId}:
+            $ref: '#/definitions/ProfessorApiSpec'
+  /professors/{professorId}:
     get:
-      summary: Returns a class by ID.
-      operationId: getClassById
+      summary: Returns a professor by ID.
+      operationId: getProfessorById
       produces:
         - application/json
       parameters:
         - in: path
-          name: classId
+          name: professorId
           required: true
           type: integer
           minimum: 1
-          description: The ID of the class to retrieve.
+          description: The ID of the professor to retrieve.
       responses:
         200:
           description: OK
           schema:
-            $ref: '#/definitions/ClassApiSpec'
+            $ref: '#/definitions/ProfessorApiSpec'
         400:
-          description: The specified class ID is invalid (e.g. not a number).
+          description: The specified professor ID is invalid (e.g. not a number).
         404:
-          description: A class with the specified ID was not found.
+          description: A professor with the specified ID was not found.
         default:
           description: Unexpected error
     put:
-      summary: Update / Replace a class.
-      operationId: updateClass
+      summary: Update / Replace a professor.
+      operationId: updateProfessor
       consumes:
         - application/json
       parameters:
         - in: path
-          name: classId
+          name: professorId
           required: true
           type: integer
           minimum: 1
-          description: The ID of the class to update.
+          description: The ID of the professor to update.
         - in: body
-          name: class
+          name: professor
           schema:
-            $ref: '#/definitions/ClassApiSpec'
+            $ref: '#/definitions/ProfessorApiSpec'
       reponses:
         204:
           description: No Content
         400:
-          description: The specified class ID is invalid (e.g. not a number).
+          description: The specified professor ID is invalid (e.g. not a number).
         404:
-          description: A class with the specified ID was not found.
+          description: A professor with the specified ID was not found.
         default:
           description: Unexpected error
     delete:
-      summary: Delete a class.
-      operationId: deleteClass
+      summary: Delete a professor.
+      operationId: deleteProfessor
       parameters:
           - in: path
-            name: classId
+            name: professorId
             required: true
             type: integer
             minimum: 1
-            description: The ID of the class to delete.
+            description: The ID of the professor to delete.
       reponses:
         200:
           description: Deleted
         400:
-          description: The specified class ID is invalid (e.g. not a number).
+          description: The specified professor ID is invalid (e.g. not a number).
         404:
-          description: A class with the specified ID was not found.
+          description: A professor with the specified ID was not found.
         default:
           description: Unexpected error
 definitions:
-  ClassApiSpec:
+  ProfessorApiSpec:
     properties:
       id:
         type: integer
       name:
         type: string
-    # Both properties are required
     required:
       - name
