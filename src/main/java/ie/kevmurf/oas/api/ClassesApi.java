@@ -23,7 +23,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-07-08T15:58:36.640+01:00[Europe/London]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-07-08T20:12:08.472+01:00[Europe/London]")
 @Api(value = "classes", description = "the classes API")
 public interface ClassesApi {
 

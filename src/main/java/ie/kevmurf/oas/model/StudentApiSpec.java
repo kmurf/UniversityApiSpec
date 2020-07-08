@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -13,7 +15,7 @@ import javax.validation.constraints.*;
  * StudentApiSpec
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-07-08T15:58:41.274+01:00[Europe/London]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-07-08T20:12:16.400+01:00[Europe/London]")
 
 
 public class StudentApiSpec   {
@@ -22,6 +24,10 @@ public class StudentApiSpec   {
 
   @JsonProperty("name")
   private String name = null;
+
+  @JsonProperty("classIds")
+  @Valid
+  private List<Integer> classIds = null;
 
   public StudentApiSpec id(Integer id) {
     this.id = id;
@@ -62,6 +68,33 @@ public class StudentApiSpec   {
     this.name = name;
   }
 
+  public StudentApiSpec classIds(List<Integer> classIds) {
+    this.classIds = classIds;
+    return this;
+  }
+
+  public StudentApiSpec addClassIdsItem(Integer classIdsItem) {
+    if (this.classIds == null) {
+      this.classIds = new ArrayList<Integer>();
+    }
+    this.classIds.add(classIdsItem);
+    return this;
+  }
+
+  /**
+   * Get classIds
+   * @return classIds
+  **/
+  @ApiModelProperty(value = "")
+  
+    public List<Integer> getClassIds() {
+    return classIds;
+  }
+
+  public void setClassIds(List<Integer> classIds) {
+    this.classIds = classIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +106,13 @@ public class StudentApiSpec   {
     }
     StudentApiSpec studentApiSpec = (StudentApiSpec) o;
     return Objects.equals(this.id, studentApiSpec.id) &&
-        Objects.equals(this.name, studentApiSpec.name);
+        Objects.equals(this.name, studentApiSpec.name) &&
+        Objects.equals(this.classIds, studentApiSpec.classIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name);
+    return Objects.hash(id, name, classIds);
   }
 
   @Override
@@ -88,6 +122,7 @@ public class StudentApiSpec   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    classIds: ").append(toIndentedString(classIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

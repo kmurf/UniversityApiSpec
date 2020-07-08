@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-07-08T15:58:38.644+01:00[Europe/London]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-07-08T20:12:12.521+01:00[Europe/London]")
 @Controller
 public class ProfessorsApiController implements ProfessorsApi {
 
@@ -43,7 +43,7 @@ public class ProfessorsApiController implements ProfessorsApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<ProfessorApiSpec>(objectMapper.readValue("{\r\n  \"name\" : \"name\",\r\n  \"id\" : 0\r\n}", ProfessorApiSpec.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<ProfessorApiSpec>(objectMapper.readValue("{\r\n  \"classIds\" : [ 6, 6 ],\r\n  \"name\" : \"name\",\r\n  \"id\" : 0\r\n}", ProfessorApiSpec.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<ProfessorApiSpec>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -64,7 +64,7 @@ public class ProfessorsApiController implements ProfessorsApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<ProfessorApiSpec>(objectMapper.readValue("{\r\n  \"name\" : \"name\",\r\n  \"id\" : 0\r\n}", ProfessorApiSpec.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<ProfessorApiSpec>(objectMapper.readValue("{\r\n  \"classIds\" : [ 6, 6 ],\r\n  \"name\" : \"name\",\r\n  \"id\" : 0\r\n}", ProfessorApiSpec.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<ProfessorApiSpec>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -78,7 +78,7 @@ public class ProfessorsApiController implements ProfessorsApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<List<ProfessorApiSpec>>(objectMapper.readValue("[ {\r\n  \"name\" : \"name\",\r\n  \"id\" : 0\r\n}, {\r\n  \"name\" : \"name\",\r\n  \"id\" : 0\r\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<List<ProfessorApiSpec>>(objectMapper.readValue("[ {\r\n  \"classIds\" : [ 6, 6 ],\r\n  \"name\" : \"name\",\r\n  \"id\" : 0\r\n}, {\r\n  \"classIds\" : [ 6, 6 ],\r\n  \"name\" : \"name\",\r\n  \"id\" : 0\r\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<List<ProfessorApiSpec>>(HttpStatus.INTERNAL_SERVER_ERROR);

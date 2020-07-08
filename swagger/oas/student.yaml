@@ -113,5 +113,9 @@ definitions:
         type: integer
       name:
         type: string
+      classIds:
+        type: array
+        items:
+          type: integer
     required:
       - name

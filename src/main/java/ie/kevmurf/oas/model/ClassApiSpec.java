@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -13,7 +15,7 @@ import javax.validation.constraints.*;
  * ClassApiSpec
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-07-08T15:58:36.640+01:00[Europe/London]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-07-08T20:12:08.472+01:00[Europe/London]")
 
 
 public class ClassApiSpec   {
@@ -22,6 +24,13 @@ public class ClassApiSpec   {
 
   @JsonProperty("name")
   private String name = null;
+
+  @JsonProperty("professorId")
+  private Integer professorId = null;
+
+  @JsonProperty("studentIds")
+  @Valid
+  private List<Integer> studentIds = null;
 
   public ClassApiSpec id(Integer id) {
     this.id = id;
@@ -62,6 +71,52 @@ public class ClassApiSpec   {
     this.name = name;
   }
 
+  public ClassApiSpec professorId(Integer professorId) {
+    this.professorId = professorId;
+    return this;
+  }
+
+  /**
+   * Get professorId
+   * @return professorId
+  **/
+  @ApiModelProperty(value = "")
+  
+    public Integer getProfessorId() {
+    return professorId;
+  }
+
+  public void setProfessorId(Integer professorId) {
+    this.professorId = professorId;
+  }
+
+  public ClassApiSpec studentIds(List<Integer> studentIds) {
+    this.studentIds = studentIds;
+    return this;
+  }
+
+  public ClassApiSpec addStudentIdsItem(Integer studentIdsItem) {
+    if (this.studentIds == null) {
+      this.studentIds = new ArrayList<Integer>();
+    }
+    this.studentIds.add(studentIdsItem);
+    return this;
+  }
+
+  /**
+   * Get studentIds
+   * @return studentIds
+  **/
+  @ApiModelProperty(value = "")
+  
+    public List<Integer> getStudentIds() {
+    return studentIds;
+  }
+
+  public void setStudentIds(List<Integer> studentIds) {
+    this.studentIds = studentIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +128,14 @@ public class ClassApiSpec   {
     }
     ClassApiSpec classApiSpec = (ClassApiSpec) o;
     return Objects.equals(this.id, classApiSpec.id) &&
-        Objects.equals(this.name, classApiSpec.name);
+        Objects.equals(this.name, classApiSpec.name) &&
+        Objects.equals(this.professorId, classApiSpec.professorId) &&
+        Objects.equals(this.studentIds, classApiSpec.studentIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name);
+    return Objects.hash(id, name, professorId, studentIds);
   }
 
   @Override
@@ -88,6 +145,8 @@ public class ClassApiSpec   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    professorId: ").append(toIndentedString(professorId)).append("\n");
+    sb.append("    studentIds: ").append(toIndentedString(studentIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
